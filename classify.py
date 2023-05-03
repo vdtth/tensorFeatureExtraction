@@ -19,23 +19,22 @@ from sklearn.model_selection import StratifiedKFold
 
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser()
-	parser.add_argument("-d", "--decomposeType", default="tucker",type=str)
-	parser.add_argument("-p", "--path", default=fr'E:\Thanh\Projects\QG-Alzheirmer\tensorFeatureExtraction\data\\',type=str)  
-	parser.add_argument('-r', '--rank', help='delimited list input', type=str,default="30,30,25")
+	# parser = argparse.ArgumentParser()
+	# parser.add_argument("-d", "--decomposeType", default="tucker",type=str)
+	# parser.add_argument("-p", "--path", default=fr'E:\Thanh\Projects\QG-Alzheirmer\tensorFeatureExtraction\data\\',type=str)  
+	# parser.add_argument('-r', '--rank', help='delimited list input', type=str,default="30,30,25")
 
-	args = parser.parse_args()
+	# args = parser.parse_args()
 
-	path = args.path
-	decomposition_type = args.decomposeType 
-	rank = [int(item) for item in args.rank.split(',')]
+	# path = args.path
+	# rank = [int(item) for item in args.rank.split(',')]
 	rank_str = '_'.join([str(elem) for elem in rank])
-	options = vars(args)
+	# options = vars(args)
 
-	pair = ["AD", "NC"]
+	# pair = ["AD", "NC"]
 	rank_str = '_'.join([str(elem) for elem in rank])
 	# E:\Thanh\Projects\QG-Alzheirmer\tensorFeatureExtraction\data\AD_tucker_30_30_25\feature_AD_NC
-	decomposition_type = "tucker"
+	# decomposition_type = "tucker"
 	path_dict = {x:os.path.join(path,fr'{x}_{decomposition_type}_{rank_str}') for x in pair}
 	core_tensor = {x:[] for x in pair}
 	core = {x:[] for x in pair}
